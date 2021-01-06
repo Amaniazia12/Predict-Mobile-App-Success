@@ -19,33 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e073e7a3-4c71-4e92-929e-9b0a2666a019" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppleStore_MLP_Regrission.py" beforeDir="false" afterPath="$PROJECT_DIR$/AppleStore_MLP_Regrission.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppleStore_Milestone2.py" beforeDir="false" afterPath="$PROJECT_DIR$/AppleStore_Milestone2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppleStore_Milestone_cop_1.py" beforeDir="false" afterPath="$PROJECT_DIR$/AppleStore_Milestone_cop_1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppleStore_PreProcessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/AppleStore_PreProcessing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppleStore_RunNewTestDataClassifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/AppleStore_RunNewTestDataClassifier.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppleStore_RunNewTestDataRegressor.py" beforeDir="false" afterPath="$PROJECT_DIR$/AppleStore_RunNewTestDataRegressor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppleStore_Save&amp;Load_ClassifierModels.py" beforeDir="false" afterPath="$PROJECT_DIR$/AppleStore_Save&amp;Load_ClassifierModels.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppleStore_Save&amp;Load_RegressorModels.py" beforeDir="false" afterPath="$PROJECT_DIR$/AppleStore_Save&amp;Load_RegressorModels.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/joblib_AdaBoostClassifierModel.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/joblib_AdaBoostClassifierModel.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/joblib_DecisionTreeClassifierModel.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/joblib_DecisionTreeClassifierModel.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/joblib_DecisionTreeRegressorModel.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/joblib_DecisionTreeRegressorModel.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/joblib_ExtraTreeClassifierModel.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/joblib_ExtraTreeClassifierModel.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/joblib_GradientBoostingClassifierModel.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/joblib_GradientBoostingClassifierModel.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/joblib_KNN_ClassifierModel.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/joblib_KNN_ClassifierModel.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/joblib_LogisticRegressionModel.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/joblib_LogisticRegressionModel.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/joblib_MLPRegressorModel.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/joblib_MLPRegressorModel.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/joblib_RandomForestClassifierModel.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/joblib_RandomForestClassifierModel.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/joblib_RandomForestRegressorModel.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/joblib_RandomForestRegressorModel.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/joblib_hot_encoderModel.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/joblib_hot_encoderModel.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/joblib_imp_mean_dataModel.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/joblib_imp_mean_dataModel.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/joblib_imp_mostfreqModel.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/joblib_imp_mostfreqModel.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/joblib_imporfeatModel.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/joblib_imporfeatModel.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/joblib_label_encoderModel.pkl" beforeDir="false" />
-    </list>
+    <list default="true" id="e073e7a3-4c71-4e92-929e-9b0a2666a019" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -217,7 +191,7 @@
       <workItem from="1609962195837" duration="1818000" />
       <workItem from="1609964367422" duration="1789000" />
       <workItem from="1609966215463" duration="1754000" />
-      <workItem from="1609968019910" duration="11000" />
+      <workItem from="1609968019910" duration="739000" />
     </task>
     <servers />
   </component>
