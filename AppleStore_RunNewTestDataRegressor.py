@@ -19,15 +19,16 @@ Y_newtest=[]
 Y_NTF=pd.DataFrame()
 Y_NTF,Y_newtest=createYDataReg(Y_NTF,Y_newtest, newtestdata)
 
-loadedLabelenc_model=joblib.load('joblib_label_encoderModel.pkl')
-newtestdata['ver']=loadedLabelenc_model.transform(list(newtestdata['ver'].values))
-newtestdata['prime_genre']=loadedLabelenc_model.transform(list(newtestdata['prime_genre'].values))
+#load label_encoderModel
+cols=('ver','prime_genre')
+label_encoderModel=joblib.load('joblib_label_encoderModel.pkl')
+for col in cols:
+ newtestdata.replace(label_encoderModel[col], inplace=True)
 
-loadedonehot_model=joblib.load('joblib_hot_encoderModel.pkl')
-#newtestdata =loadedonehot_model.transform(newtestdata)
+#load Hot_encoderModel
+hot_encoderModel=joblib.load('joblib_hot_encoderModel.pkl')
+newtestdata =hot_encoderModel.transform(newtestdata)
 
-
-#Y_newtest=np.array(Y_newtest)
 X_newtest=[]
 X_NTF=pd.DataFrame()
 X_NTF,X_newtest=createXDataReg(X_NTF,X_newtest, newtestdata)
@@ -39,9 +40,9 @@ for array in Y_newtest:
  for x in array:
     newtest_temp.append(x)
 Y_newtest=newtest_temp
+
 '''
 print('new X data frame\n',X_NTF)
 print('new X list\n',X_newtest)
 print('new Y data frame\n',Y_NTF)
-print('new Y list\n',Y_newtest)
-'''
+print('new Y list\n',Y_newtest)'''

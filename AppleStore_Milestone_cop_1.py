@@ -16,7 +16,7 @@ from sklearn.compose import _column_transformer
 
 def create_preprocessing_reg(data):
   #drop currency col (constant null values ) ** DROP CURRENCY COLUMN BEFORE ROWS DROPPING TO MINIMIZE NUMBER OF ROWS LOSS **
-  drop_cols=('currency','vpp_lic','track_name','prime_genre','id')
+  drop_cols=('currency','vpp_lic','track_name','id')
   data=drop_columns(data,drop_cols)
 
   #drop null rows affter droping currency col
@@ -28,7 +28,7 @@ def create_preprocessing_reg(data):
   data=OneHot_Encoder(data, HotEncoder_Cols);
 
 
-  LabelEncoder_Cols='ver'
+  LabelEncoder_Cols=('ver','prime_genre')
 
 
   data=label_encoder(data, LabelEncoder_Cols);
@@ -38,7 +38,7 @@ def create_preprocessing_reg(data):
 
 def createXDataReg(X, X_list, data):
     X_list = data.iloc[:, :data.shape[1] - 1]  # all data from size to num_of_lang
-
+    #print(X_list.iloc[0,:])
     # feature scaling X
 
     X_list = featureScaling(np.array(X_list))
@@ -130,7 +130,7 @@ Y_test=test_temp
 #print('Y-----------:\n',Y)
 
 
-
+'''
 newtestdata=pd.read_csv('AppleStore_training.csv')
 newtestdata=create_preprocessing_reg(newtestdata)
 Y_newtest=[]
@@ -148,9 +148,9 @@ for array in Y_newtest:
  for x in array:
     newtest_temp.append(x)
 Y_newtest=newtest_temp
-'''
+\'''
 print('new X data frame\n',X_NTF)
 print('new X list\n',X_newtest)
 print('new Y data frame\n',Y_NTF)
-print('new Y list\n',Y_newtest)
+print('new Y list\n',Y_newtest)\'''
 '''

@@ -15,7 +15,7 @@ from AppleStore_Milestone_cop_1 import *
 
 
 print('\t\t\t MLP Regressor Model \t\t\t\n','*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*')
-MLPRegressorModel = MLPRegressor(hidden_layer_sizes=10, learning_rate_init=0.1, random_state=1, max_iter=500, tol=0.0000001, alpha = 0.000001, solver='lbfgs', n_iter_no_change=10, early_stopping=True)\
+MLPRegressorModel = MLPRegressor(hidden_layer_sizes=10, learning_rate_init=0.1, random_state=1, max_iter=550, tol=0.0000001, alpha = 0.000001, solver='lbfgs', n_iter_no_change=10, early_stopping=True)\
     .fit(X_train, Y_train)
 prediction_s = MLPRegressorModel.predict(X_train)
 print('Mean Square Error train = ', metrics.mean_squared_error(Y_train, prediction_s))
