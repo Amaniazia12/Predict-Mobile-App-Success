@@ -23,3 +23,5 @@ y_predtest = RandomForestClassifierModel.predict(X_test)
 
 accuracy = np.mean(y_predtest == Y_test)
 print('Random forest accuracy test with prediction : ',accuracy,'\n')
+
+joblib.dump(RandomForestClassifierModel,'joblib_RandomForestClassifierModel.pkl')

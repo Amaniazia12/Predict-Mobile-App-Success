@@ -40,6 +40,8 @@ Y_testPred=DecisionTreeClassifierModel.predict(X_test)
 #print('MSE of test = ',np.sqrt(mean_squared_error(Y_test,Y_testPred)))
 accuracy = DecisionTreeClassifierModel.score(X_test, Y_test)
 print('Decission tree accuracy test : ' + str(accuracy),'\n')
+joblib.dump(DecisionTreeClassifierModel,'joblib_DecisionTreeClassifierModel.pkl')
+
 """
 # Fit the model on training set
 model = LogisticRegression()

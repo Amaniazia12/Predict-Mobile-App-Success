@@ -15,11 +15,11 @@ from sklearn.compose import _column_transformer
 
 
 def create_preprocessing_reg(data):
-  #drop currency col (constant null values ) ** DROP CURRENCY COLUMN BEFORE ROWS DROPPING TO MINIMIZE NUMBER OF ROWS LOSS **
+  #drop currency col (constant null values ) or useless columns  ** DROP CURRENCY COLUMN BEFORE ROWS DROPPING TO MINIMIZE NUMBER OF ROWS LOSS **
   drop_cols=('currency','vpp_lic','track_name','id')
   data=drop_columns(data,drop_cols)
 
-  #drop null rows affter droping currency col
+  #drop null rows after droping columns
 
   data=drop_row(data)
 
@@ -35,11 +35,12 @@ def create_preprocessing_reg(data):
   #print(data)
   return data
 
-
+#select the features
 def createXDataReg(X, X_list, data):
     X_list = data.iloc[:, :data.shape[1] - 1]  # all data from size to num_of_lang
     #print(X_list.iloc[0,:])
-    # feature scaling X
+
+    # feature scaling (normalize features )
 
     X_list = featureScaling(np.array(X_list))
 
@@ -49,7 +50,7 @@ def createXDataReg(X, X_list, data):
 
 
 
-
+#create Y
 def createYDataReg(Y, Y_list, data):
     Y_list = data.iloc[:, data.shape[1] - 1:data.shape[1]]
 
@@ -94,6 +95,7 @@ Y,Y_list=createYDataReg(Y, Y_list, AppleStore_data)
 
 #X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size = 0.30,shuffle=True)
 
+#make KFold cross validation for more accurate learning
 kf3 = KFold(n_splits=3,shuffle=False)
 
 
@@ -107,7 +109,7 @@ for train_index, test_index in kf3.split(X_list):
     Y_train, Y_test = Y_list[train_index], Y_list[test_index]
 
 train_temp = []
-
+#convert Y_train to vector
 for array in Y_train:
  for x in array:
     train_temp.append(x)
@@ -115,7 +117,7 @@ Y_train=train_temp
 
 
 test_temp = []
-
+#convert Y_test to vector
 for array in Y_test:
  for x in array:
     test_temp.append(x)

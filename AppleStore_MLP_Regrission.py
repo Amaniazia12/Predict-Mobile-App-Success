@@ -26,7 +26,7 @@ print('Mean Square Error test = ', metrics.mean_squared_error(Y_test, prediction
 
 print("Accuracy of MLPRegression test = ", r2_score(Y_test,prediction_s),'\n')
 
-
+joblib.dump(MLPRegressorModel ,'joblib_MLPRegressorModel.pkl')
 ###################################linear_model(Lasso)######bad###########################################
 '''ls = linear_model.Lasso(alpha=0.000001) #alpha can be fine tuned
 ls.fit(X_train, Y_train)

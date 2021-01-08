@@ -27,7 +27,9 @@ C = 0.1  # SVM regularization parameter
 LinearSVModel = svm.LinearSVC(C=C).fit(X_train, Y_train) #minimize squared hinge loss, One vs All
 NonLinearSVModel = svm.SVC(kernel='rbf', gamma=0.5, C=C).fit(X_train, Y_train)
 PolynomialSVModel = svm.SVC(kernel='poly', degree=2, C=C).fit(X_train, Y_train)
-
+joblib.dump(LinearSVModel,'joblib_OneVSAllLinearSVModel.pkl')
+joblib.dump(NonLinearSVModel,'joblib_NonLinearSVModel.pkl')
+joblib.dump(PolynomialSVModel,'joblib_PolynomialSVModel.pkl')
 title=''
 for i, clf in enumerate((LinearSVModel, NonLinearSVModel, PolynomialSVModel)):
 
@@ -37,8 +39,12 @@ for i, clf in enumerate((LinearSVModel, NonLinearSVModel, PolynomialSVModel)):
         title='NON Linear SVM Model'
     else:
         title = 'Polynomial SVM Model'
+    predictions = clf.predict(X_train)
+    accuracy = np.mean(predictions == Y_train)
+    print('{} accuracy of train data is = '.format(title), accuracy)
     predictions = clf.predict(X_test)
     accuracy = np.mean(predictions == Y_test)
-    print('{} accuracy is = '.format(title),accuracy)
+    print('{} accuracy of test data is = '.format(title),accuracy,'\n')
 print('\n')
+
 

@@ -18,7 +18,7 @@ accuracyTest=np.mean(y_testprediction == Y_test)
 
 print ("The achieved accuracy train using KNN is " + str(accuracyTrain))
 print ("The achieved accuracy test using KNN is " + str(accuracyTest),'\n')
-
+joblib.dump(KNeighborsClassifierModel,'joblib_KNN_ClassifierModel.pkl')
 '''
 error = []
 

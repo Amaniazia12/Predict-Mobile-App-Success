@@ -23,7 +23,7 @@ def create_classes(targetdata,Ydata):
 
 
 def createPreprocessingClassi(data):
- #drop currency col (constant null values ) ** DROP CURRENCY COLUMN BEFORE ROWS DROPPING TO MINIMIZE NUMBER OF ROWS LOSS **
+ #drop currency col (constant null values ) or useless columns ** DROP CURRENCY COLUMN BEFORE ROWS DROPPING TO MINIMIZE NUMBER OF ROWS LOSS **
  drop_cols=('currency','vpp_lic','track_name','id')
  data=drop_columns(data, drop_cols)
 
@@ -35,10 +35,10 @@ def createPreprocessingClassi(data):
  data.iloc[:,4]=p[:,0]
  data.iloc[:,5]=p[:,1]
  data.iloc[:,6]=p[:,2]
-#save most_frequent model
+ #save most_frequent model
  joblib.dump(imp_mostfreqModel,'joblib_imp_mostfreqModel.pkl')
 
-#when we try to use only most_frequent without mean model
+ #when we try to use only most_frequent without mean model
  '''
  data = data.iloc[:, :data.shape[1] - 1]
  imp_mostfreqModel = SimpleImputer(strategy='most_frequent')
@@ -51,12 +51,19 @@ def createPreprocessingClassi(data):
  LabelEncoder_Cols=('ver','prime_genre')
  data=label_encoder(data, LabelEncoder_Cols);
 
+ #test one hot encoder of 'prime_genre'
+ # HotEncoder_Cols = 'prime_genre'
+ # data = OneHot_Encoder(data, HotEncoder_Cols);
 
  #hotEncoder
  HotEncoder_Cols= 'cont_rating'
  data=OneHot_Encoder(data, HotEncoder_Cols);
 
  data = data.iloc[:, :data.shape[1] - 1]
+ #print(data.iloc[0,:])
+ #print(data.iloc[:,AppleStore_data.shape[1]-1])
+ #print(data.iloc[:,8])
+ #print("Size  Price : \n",data.iloc[:,:2])
 
  #fill missing values with the mean of numerical features
  imp_mean_dataModel = SimpleImputer(missing_values=np.nan, strategy='mean')
@@ -70,15 +77,15 @@ def createPreprocessingClassi(data):
  imp_mean_dataModel = imp_mean_dataModel.fit(data.iloc[:, 33:])
  temp_mean = imp_mean_dataModel.transform(data.iloc[:, 33:])
  data.iloc[:, 33:] = temp_mean'''
- print(data.iloc[data.shape[0]-1,:])
+ #print(data.iloc[data.shape[0]-1,:])
 
- # feature scaling data
+ # create feature scaling of the data
  data =featureScaling(np.array(data))
  data =pd.DataFrame(data)
  #print(AppleStore_data)
  return data
 
-
+#select features
 def createXData(X, data):
 
  X['size_bytes']= data.iloc[:, 0]
@@ -86,11 +93,13 @@ def createXData(X, data):
  X['rating_count_tot']= data.iloc[:, 2]
  X['rating_count_ver ']= data.iloc[:, 3]
  X['ver']= data.iloc[:, 4]
+ #take prime_genre as a feature after label encoder but that decrease the accuracy
  #X['prime_genre'] = data.iloc[:, 9]
  X['lang.num']= data.iloc[:, 12]
 
 
-
+#make one hot encoder for <--prime_genre--> 2- select the important features 3- select the important features as <--X-->
+#but the onehot encoder of <--prime_genre--> decrease the accuracy
  '''
  X['size_bytes']= data.iloc[:, 0]
  X['price']= data.iloc[:, 1]
@@ -123,8 +132,8 @@ Y=np.array(Y)
 imporfeatModel = ExtraTreesClassifier()
 imporfeatModel.fit(AppleStore_data, Y)
 #feature_importances of tree based classifiers
-import_features=imporfeatModel.feature_importances_
-#print(import_features)
+important_features=imporfeatModel.feature_importances_
+#print(important_features)
 
 #plot graph of feature importances for better visualization
 plot_importances = pd.Series(imporfeatModel.feature_importances_, index=AppleStore_data.columns)

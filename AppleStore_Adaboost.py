@@ -44,4 +44,4 @@ accuracyTest=np.mean(y_testprediction == Y_test)
 
 print ("The achieved accuracy using Adaboost is " + str(accuracyTrain))
 print ("The achieved accuracy using Adaboost is " + str(accuracyTest),'\n')
-
+joblib.dump(AdaBoostClassifierModel,'joblib_AdaBoostClassifierModel.pkl')

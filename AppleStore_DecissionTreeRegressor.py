@@ -36,3 +36,4 @@ print('accuracy of train = ',r2_score(Y_train, tr2))
 print('MSE OF test = ',np.sqrt(mean_squared_error(Y_test,y2)))
 print('accuracy of test = ',r2_score(Y_test, y2),'\n')
 
+joblib.dump(DecisionTreeRegressorModel,'joblib_DecisionTreeRegressorModel.pkl')

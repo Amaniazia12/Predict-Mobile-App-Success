@@ -9,3 +9,4 @@ ExtraTreeClassifierModel=BaggingClassifier(ExtraTreeClassifierModel, random_stat
 
 print('accuracy of training is : ',ExtraTreeClassifierModel.score(X_train, Y_train))
 print('accuracy of testing is : ',ExtraTreeClassifierModel.score(X_test, Y_test),'\n')
+joblib.dump(ExtraTreeClassifierModel,'joblib_ExtraTreeClassifierModel.pkl')

@@ -35,7 +35,7 @@ pred_test_rf = RandomForestRegressorModel.predict(X_test)
 
 print('Mean Square Error of testing data = ',np.sqrt(mean_squared_error(Y_test,pred_test_rf)))
 print('aaccuracy of testing data = ',r2_score(Y_test, pred_test_rf),'\n')
-
+joblib.dump(RandomForestRegressorModel,'joblib_RandomForestRegressorModel.pkl')
 
 
 

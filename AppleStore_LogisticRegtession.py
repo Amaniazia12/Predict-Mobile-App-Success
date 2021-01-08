@@ -29,3 +29,4 @@ predictions = LogisticRegressionModel .predict(X_test)
 #Generate a confusion matrix
 score = LogisticRegressionModel .score(X_test, Y_test)
 print("accuracy of test is ",score,'\n')
+joblib.dump(LogisticRegressionModel,'joblib_LogisticRegressionModel.pkl')
