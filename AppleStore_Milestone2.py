@@ -78,7 +78,7 @@ def createPreprocessingClassi(data):
  temp_mean = imp_mean_dataModel.transform(data.iloc[:, 33:])
  data.iloc[:, 33:] = temp_mean'''
  #print(data.iloc[data.shape[0]-1,:])
-
+ dataname=data
  # create feature scaling of the data
  data =featureScaling(np.array(data))
  data =pd.DataFrame(data)
@@ -128,17 +128,17 @@ Y=np.array(Y)
 
 
 # get the important features depend on their relationhip
-
+# print(AppleStore_data)
 imporfeatModel = ExtraTreesClassifier()
 imporfeatModel.fit(AppleStore_data, Y)
 #feature_importances of tree based classifiers
 important_features=imporfeatModel.feature_importances_
-#print(important_features)
+#print("important features are : ",important_features)
 
 #plot graph of feature importances for better visualization
 plot_importances = pd.Series(imporfeatModel.feature_importances_, index=AppleStore_data.columns)
 plot_importances.nlargest(10).plot(kind='barh')
-#plt.show()
+# plt.show()
 
 joblib.dump(imporfeatModel ,'joblib_imporfeatModel.pkl')
 

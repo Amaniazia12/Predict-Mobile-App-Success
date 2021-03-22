@@ -5,20 +5,32 @@ from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.preprocessing import StandardScaler
 from AppleStore_Milestone2 import *
-
+import time
 print('\t\t\t KNeighbors Classifier Model \t\t\t\n','*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*')
-
+start_t=time.time()
 KNeighborsClassifierModel = KNeighborsClassifier(n_neighbors=75)
 KNeighborsClassifierModel.fit(X_train, Y_train)
+end_t=time.time()
 
 y_trainprediction = KNeighborsClassifierModel.predict(X_train)
-y_testprediction = KNeighborsClassifierModel.predict(X_test)
 accuracyTrain=np.mean(y_trainprediction == Y_train)
-accuracyTest=np.mean(y_testprediction == Y_test)
+print ("The achieved accuracy train using KNN is : " + str(accuracyTrain),'\n training time = : ',end_t-start_t)
 
-print ("The achieved accuracy train using KNN is " + str(accuracyTrain))
-print ("The achieved accuracy test using KNN is " + str(accuracyTest),'\n')
+start_t=time.time()
+y_testprediction = KNeighborsClassifierModel.predict(X_test)
+accuracyTest=np.mean(y_testprediction == Y_test)
+end_t=time.time()
+print ("The achieved accuracy test using KNN is : " + str(accuracyTest),'\n testing time = ',end_t-start_t,'\n')
 joblib.dump(KNeighborsClassifierModel,'joblib_KNN_ClassifierModel.pkl')
+
+
+# start_t=time.time()
+# loaded_model = joblib.load('joblib_KNN_ClassifierModel.pkl')
+# predict = loaded_model.predict(X_test)
+# accuracy=np.mean(predict == Y_test)
+# # accuracy = loaded_model.score(X_test, Y_test)
+# end_t=time.time()
+# print('KNN_ClassifierModel accuracy test : ' + str(accuracy),'\n time test 2= ',end_t-start_t)
 '''
 error = []
 
@@ -37,3 +49,8 @@ plt.xlabel('K Value')
 plt.ylabel('Mean Error')
 plt.show()
 '''
+
+# loaded_model = joblib.load('joblib_KNN_ClassifierModel.pkl')
+# predict = loaded_model.predict(X_test)
+# accuracy = loaded_model.score(X_test, Y_test)
+# print('Decission tree accuracy test : ' + str(accuracy),'\n')

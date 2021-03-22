@@ -50,6 +50,7 @@ ModelName=[ 'DecisionTreeClassifier',
              'AdaBoostClassifier',
              'KNN_Classifier',
              'LogisticRegression',
+
              'OneVSAllLinearSVM',
              'NonLinearSVModel',
              'PolynomialSVM'
